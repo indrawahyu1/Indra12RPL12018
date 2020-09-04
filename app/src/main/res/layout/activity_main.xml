@@ -6,32 +6,129 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:background="@drawable/login_ui4"
     android:id="@+id/relativeLayout">
     tools:context=".MainActivity">
-
-    <EditText
-        android:id="@+id/txtusername"
+    
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:hint="Username" />
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/txtpassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:hint="Password"
-        android:layout_marginTop="6mm"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </LinearLayout>
+        <LinearLayout
+            android:paddingRight="50dp"
+            android:paddingLeft="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+<!--            <EditText-->
+<!--                android:textColor="#000000"-->
+<!--                android:paddingLeft="10dp"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="45dp"-->
+<!--                android:layout_marginTop="46mm"-->
+<!--                android:hint="Email"/>-->
+<!--            <EditText-->
+<!--                android:paddingLeft="10dp"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:hint="Password"-->
+<!--                android:layout_height="45dp" />-->
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:background="@drawable/bycicle1"
+                />
+            <TextView
+                android:textStyle="bold"
+                android:textSize="25dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:text="LOGIN"
+                android:layout_marginBottom="30dp"/>
 
-    <Button
-        android:id="@+id/btnlogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14mm"
-        android:layout_marginLeft="24mm"
-        android:text="Login"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textI"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvtext">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:textColorHint="#000000"
+                    android:id="@+id/txtuser"
+                    android:textSize="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:hint="Email" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textI2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textI"
+                android:layout_marginTop="5dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtpass"
+                    android:textSize="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:hint="Password" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:textStyle="bold"
+                android:id="@+id/newakun"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tidak Punya Akun!"/>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <LinearLayout
+                android:layout_marginTop="27dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="100dp">
+                <Button
+                    android:id="@+id/btnlogin"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="#ffffff"
+                    android:background="@drawable/button_ui"
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="center"
+                    android:textAllCaps="false"
+                    android:text="Login"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"/>
+
+                <Button
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/btndaftar"
+                    android:textColor="#ffffff"
+                    android:background="@drawable/button_ui"
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="center"
+                    android:textAllCaps="false"
+                    android:text="Register"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
 
 </RelativeLayout>
