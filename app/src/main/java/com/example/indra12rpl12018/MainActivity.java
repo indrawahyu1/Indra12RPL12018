@@ -62,9 +62,8 @@ public class MainActivity extends AppCompatActivity {
                     HashMap<String, String> body = new HashMap<>();
                     body.put("email", username);
                     body.put("password", password);
-                    AndroidNetworking.post("http://192.168.6.87/api/login.php")
+                    AndroidNetworking.post("http://192.168.43.109/api/login.php")
                             .addBodyParameter(body)
-                            .setOkHttpClient(((Initial) getApplication()).getOkHttpClient())
                             .setPriority(Priority.MEDIUM)
                             .build()
                             .getAsJSONObject(new JSONObjectRequestListener() {
