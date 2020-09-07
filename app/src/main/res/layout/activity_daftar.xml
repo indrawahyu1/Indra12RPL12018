@@ -100,7 +100,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/text2"
-            android:layout_marginTop="8dp">
+            android:layout_marginTop="8dp"/>
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/alamat1"
@@ -109,7 +109,27 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
                 android:hint="alamat" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ktp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text2"
+            android:layout_marginTop="8dp">
 
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ktp1"
+                android:textSize="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:hint="No KTP" />
+            <TextView
+                android:layout_marginTop="8dp"
+                android:textStyle="bold"
+                android:id="@+id/readyaccount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sudah Punya Akun!"/>
             <Button
                 android:id="@+id/btndaftar"
                 android:layout_width="191dp"

@@ -25,7 +25,7 @@ import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
     private Button btnlogin;
-    private Button btnregister;
+    private Button btndaftar;
     private TextView newakun;
     public static final String SHARED_PREFS = "sharedPrefs";
     public static final String ID = "id";
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                     HashMap<String, String> body = new HashMap<>();
                     body.put("email", username);
                     body.put("password", password);
-                    AndroidNetworking.post("http://192.168.43.109/api/login.php")
+                    AndroidNetworking.post("http://192.168.43.193/api/login.php")
                             .addBodyParameter(body)
                             .setPriority(Priority.MEDIUM)
                             .build()

@@ -3,7 +3,7 @@
     <domain-config cleartextTrafficPermitted="true">
         <domain includeSubdomains="true">192.168.43.109</domain>
         <domain includeSubdomains="true">192.168.1.7</domain>
-        <domain includeSubdomains="true">192.168.100.31</domain>
+        <domain includeSubdomains="true">192.168.43.193</domain>
         <domain includeSubdomains="true">149.28.145.136</domain>
         <domain includeSubdomains="true">ngrok.io</domain>
         <domain includeSubdomains="true">192.168.43.153</domain>
