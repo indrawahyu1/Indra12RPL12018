@@ -1,6 +1,7 @@
 package com.example.indra12rpl12018;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,10 +11,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class rv_adapter extends RecyclerView.Adapter<rv_adapter.ScansDataViewHolder> {
-    private List<rv_model> mList;
+    private ArrayList<rv_model> mList;
     private Context mCtx;
     private OnItemClickCallback onItemClickCallback;
 
@@ -22,9 +24,9 @@ public class rv_adapter extends RecyclerView.Adapter<rv_adapter.ScansDataViewHol
     }
 
 
-    public rv_adapter(Context ctx, List<rv_model> list) {
+    public rv_adapter(Context ctx, ArrayList<rv_model> mList) {
         this.mCtx = ctx;
-        this.mList = list;
+        this.mList = mList;
     }
 
     @NonNull
@@ -66,10 +68,18 @@ public class rv_adapter extends RecyclerView.Adapter<rv_adapter.ScansDataViewHol
             tvJenis = (TextView) itemView.findViewById(R.id.tvJenis);
             tvKode = (TextView) itemView.findViewById(R.id.tvKode);
 
-
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(mCtx, UserActivity.class);
+                    i.putExtra("EXTRA_CUSTOMER", mList.get(getAdapterPosition()));
+                    mCtx.startActivity(i);
+                }
+            });
         }
     }
     public interface OnItemClickCallback {
         void onItemClicked(rv_model data);
     }
+
 }

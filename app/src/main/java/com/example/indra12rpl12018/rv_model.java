@@ -1,6 +1,33 @@
 package com.example.indra12rpl12018;
 
-public class rv_model {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class rv_model implements Parcelable {
+
+    protected rv_model(Parcel in) {
+        id = in.readString();
+        nama = in.readString();
+        Nohp = in.readString();
+        email = in.readString();
+    }
+
+    public static final Creator<rv_model> CREATOR = new Creator<rv_model>() {
+        @Override
+        public rv_model createFromParcel(Parcel in) {
+            return new rv_model(in);
+        }
+
+        @Override
+        public rv_model[] newArray(int size) {
+            return new rv_model[size];
+        }
+    };
+
+    public rv_model() {
+
+    }
+
     public String getNama() {
         return nama;
     }
@@ -28,4 +55,27 @@ public class rv_model {
     private String nama;
     private String email;
     private String id;
+
+    public String getNohp() {
+        return Nohp;
+    }
+
+    public void setNohp(String nohp) {
+        Nohp = nohp;
+    }
+
+    private String Nohp;
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(id);
+        parcel.writeString(nama);
+        parcel.writeString(Nohp);
+        parcel.writeString(email    );
+    }
 }

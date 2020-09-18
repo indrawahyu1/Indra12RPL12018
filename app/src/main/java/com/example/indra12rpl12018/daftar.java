@@ -73,7 +73,7 @@ public class daftar extends AppCompatActivity {
                 body.put("role", "1");
 //                Toast.makeText(daftar.this, body.toString(), Toast.LENGTH_LONG).show();
 
-                AndroidNetworking.post("http://192.168.1.11/api/register.php")
+                AndroidNetworking.post("http://192.168.43.109/api/register.php")
                         .addBodyParameter(body)
 //                        .setOkHttpClient(((Initial) getApplication()).getOkHttpClient())
                         .setPriority(Priority.MEDIUM)

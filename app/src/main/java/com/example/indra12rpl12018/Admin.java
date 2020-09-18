@@ -24,7 +24,7 @@ public class Admin extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private rv_adapter rv_adapter;
-    private List<rv_model> modelAdminArrayList = new ArrayList<>();
+    private ArrayList<rv_model> modelAdminArrayList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class Admin extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
 
-        AndroidNetworking.get("http://192.168.1.11/api/show_user.php")
+        AndroidNetworking.get("http://192.168.43.109/api/show_user.php")
                 .setPriority(Priority.LOW)
                 .build()
                 .getAsJSONObject(new JSONObjectRequestListener() {
@@ -69,7 +69,7 @@ public class Admin extends AppCompatActivity {
                     }
                 });
 
-        rv_adapter = new rv_adapter(getApplicationContext(),modelAdminArrayList);
+        rv_adapter = new rv_adapter(Admin.this, modelAdminArrayList);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(Admin.this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(rv_adapter);
