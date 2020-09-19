@@ -5,7 +5,7 @@
         <domain includeSubdomains="true">192.168.1.7</domain>
         <domain includeSubdomains="true">192.168.43.193</domain>
         <domain includeSubdomains="true">192.168.1.11</domain>
-        <domain includeSubdomains="true">ngrok.io</domain>
+        <domain includeSubdomains="true">192.168.6.87</domain>
         <domain includeSubdomains="true">192.168.43.153</domain>
         <domain includeSubdomains="true">192.168.137.1</domain>
         <domain includeSubdomains="true">DESKTOP-UK2LTJN</domain>

@@ -2,13 +2,16 @@ package com.example.indra12rpl12018;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -17,12 +20,6 @@ import java.util.List;
 public class rv_adapter extends RecyclerView.Adapter<rv_adapter.ScansDataViewHolder> {
     private ArrayList<rv_model> mList;
     private Context mCtx;
-    private OnItemClickCallback onItemClickCallback;
-
-    public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback) {
-        this.onItemClickCallback = onItemClickCallback;
-    }
-
 
     public rv_adapter(Context ctx, ArrayList<rv_model> mList) {
         this.mCtx = ctx;
@@ -43,12 +40,6 @@ public class rv_adapter extends RecyclerView.Adapter<rv_adapter.ScansDataViewHol
         accountsScansDataViewHolder.tvNama.setText(aModel.getNama());
         accountsScansDataViewHolder.tvKode.setText(aModel.getId());
         accountsScansDataViewHolder.tvJenis.setText(aModel.getEmail());
-        accountsScansDataViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onItemClickCallback.onItemClicked(aModel);
-            }
-        });
     }
 
     @Override
@@ -57,6 +48,7 @@ public class rv_adapter extends RecyclerView.Adapter<rv_adapter.ScansDataViewHol
     }
 
     public class ScansDataViewHolder extends RecyclerView.ViewHolder {
+        CardView cvItem;
         TextView tvNama,tvJenis, tvKode;
         private EditText nama,jenis,text;
 
@@ -67,6 +59,7 @@ public class rv_adapter extends RecyclerView.Adapter<rv_adapter.ScansDataViewHol
             tvNama = (TextView) itemView.findViewById(R.id.tvNama);
             tvJenis = (TextView) itemView.findViewById(R.id.tvJenis);
             tvKode = (TextView) itemView.findViewById(R.id.tvKode);
+            cvItem = (CardView) itemView.findViewById(R.id.cvItem);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -77,9 +70,6 @@ public class rv_adapter extends RecyclerView.Adapter<rv_adapter.ScansDataViewHol
                 }
             });
         }
-    }
-    public interface OnItemClickCallback {
-        void onItemClicked(rv_model data);
     }
 
 }

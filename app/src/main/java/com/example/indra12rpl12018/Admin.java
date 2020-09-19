@@ -33,7 +33,7 @@ public class Admin extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
 
-        AndroidNetworking.get("http://192.168.43.109/api/show_user.php")
+        AndroidNetworking.get("http://192.168.6.87/api/show_user.php")
                 .setPriority(Priority.LOW)
                 .build()
                 .getAsJSONObject(new JSONObjectRequestListener() {
