@@ -19,6 +19,8 @@ import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashMap;
+
 public class UserActivity extends AppCompatActivity {
 
     private TextView etName, etNoktp, etNohp, etAddress;
@@ -31,7 +33,6 @@ public class UserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
 
-        btnDelete = findViewById(R.id.btndelete);
         etName = findViewById(R.id.txtusername2);
         etNoktp = findViewById(R.id.txtnoktp1);
         etNohp = findViewById(R.id.txtnomerhp1);
@@ -43,26 +44,38 @@ public class UserActivity extends AppCompatActivity {
             etNoktp.setText(dataCust.getNohp());
             etNohp.setText(dataCust.getNohp());
             etAddress.setText(dataCust.getEmail());
-            etName.setEnabled(false);
-            etNoktp.setEnabled(false);
-            etNohp.setEnabled(false);
-            etAddress.setEnabled(false);
+//            etName.setEnabled(false);
+//            etNoktp.setEnabled(false);
+//            etNohp.setEnabled(false);
+//            etAddress.setEnabled(false);
             id = dataCust.getId();
 
-            btnDelete = findViewById(R.id.btndelete);
-            btnDelete.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    deleteData(id);
-                }
-            });
+//            btnDelete = findViewById(R.id.btnedit);
+//            btnDelete.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    deleteData(id);
+//                }
+//            });
 
         }else {
             finish();
         }
 
-//        getData();
-
+        getData();
+        btnEdit = (Button) findViewById(R.id.btnedit);
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = etName.getText().toString();
+                String noktp = etNoktp.getText().toString();
+                String nohp = etNohp.getText().toString();
+                String address = etAddress.getText().toString();
+                String u_id = id.toString();
+                editData(u_id, name, noktp, nohp, address);
+//                Toast.makeText(UserActivity.this, "edit", Toast.LENGTH_SHORT).show();
+            }
+        });
 //        btnEdit = findViewById(R.id.btnedit);
 //        btnDelete.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -126,7 +139,46 @@ public class UserActivity extends AppCompatActivity {
                     }
                 });
     }
+    public void editData(String id, String nama, String noktp, String nohp, String alamat) {
+//            sharedPreferences = getSharedPreferences("pref", MODE_PRIVATE);
+//            final String id_auth = sharedPreferences.getString("id", "");
+        HashMap<String, String> body = new HashMap<>();
+//            body.put("id_auth", id_auth);
+        body.put("id", id);
+        body.put("nama", nama);
+        body.put("noktp", noktp);
+        body.put("nohp", nohp);
+        body.put("alamat", alamat);
 
+        AndroidNetworking.post("http://192.168.1.12/api/edit_user.php")
+                .addBodyParameter(body)
+                .setPriority(Priority.MEDIUM)
+                .build()
+                .getAsJSONObject(new JSONObjectRequestListener() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.d("ABR", "respon : " + response);
+                        String status = response.optString("STATUS");
+                        String message = response.optString("MESSAGE");
+                        if (status.equalsIgnoreCase("SUCCESS")) {
+                            Toast.makeText(UserActivity.this, message, Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(UserActivity.this, message, Toast.LENGTH_SHORT).show();
+
+                        }
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+                        Toast.makeText(UserActivity.this, "Kesalahan Internal", Toast.LENGTH_SHORT).show();
+                        Log.d("Soy", "onError: " + anError.getErrorBody());
+                        Log.d("Soy", "onError: " + anError.getLocalizedMessage());
+                        Log.d("Soy", "onError: " + anError.getErrorDetail());
+                        Log.d("Soy", "onError: " + anError.getResponse());
+                        Log.d("Soy", "onError: " + anError.getErrorCode());
+                    }
+                });
+    }
 //        public void editData(String id, String name, String noktp, String nohp, String address) {
 //            sharedPreferences = getSharedPreferences("pref", MODE_PRIVATE);
 //            final String id_auth = sharedPreferences.getString("id", "");

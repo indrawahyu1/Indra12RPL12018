@@ -41,11 +41,20 @@ public class rv_adapter extends RecyclerView.Adapter<rv_adapter.ScansDataViewHol
         accountsScansDataViewHolder.tvKode.setText(aModel.getId());
         accountsScansDataViewHolder.tvJenis.setText(aModel.getEmail());
     }
-
     @Override
     public int getItemCount() {
-        return (mList !=null? mList.size():0);
+        return mList.size();
     }
+
+    public void clearData() {
+        int size = this.mList.size();
+        if (size > 0) {
+            for (int i = 0; i < size; i++) {
+                this.mList.remove(0);
+            }
+        }
+    }
+
 
     public class ScansDataViewHolder extends RecyclerView.ViewHolder {
         CardView cvItem;

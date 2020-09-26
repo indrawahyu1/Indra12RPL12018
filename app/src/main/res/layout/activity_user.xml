@@ -64,7 +64,7 @@
                 android:layout_marginRight="30dp"
                 android:drawablePadding="10dp"
                 android:fontFamily="sans-serif-medium"
-                android:hint="Nomor KTP"
+                android:hint="Nomor Hp"
                 android:inputType="number"
                 android:textColorHint="#000000"
                 android:textSize="12dp" />
@@ -99,13 +99,13 @@
         <!--            android:text="Edit"-->
         <!--            android:textColor="#fff" />-->
         <Button
-            android:id="@+id/btndelete"
+            android:id="@+id/btnedit"
             android:layout_width="218dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
-            android:text="Delete"
+            android:text="Update"
             android:textColor="#4A4040" />
 
     </LinearLayout>

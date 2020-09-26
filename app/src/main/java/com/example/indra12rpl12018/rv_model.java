@@ -55,6 +55,30 @@ public class rv_model implements Parcelable {
     private String nama;
     private String email;
     private String id;
+    private String Noktp;
+
+    public static Creator<rv_model> getCREATOR() {
+        return CREATOR;
+    }
+
+    public String getNoktp() {
+        return Noktp;
+    }
+
+    public void setNoktp(String noktp) {
+        Noktp = noktp;
+    }
+
+    public String getAlamt() {
+        return alamat;
+    }
+
+    public void setAlamt(String alamt) {
+        this.alamat = alamt;
+    }
+
+    private String alamat;
+
 
     public String getNohp() {
         return Nohp;
@@ -76,6 +100,9 @@ public class rv_model implements Parcelable {
         parcel.writeString(id);
         parcel.writeString(nama);
         parcel.writeString(Nohp);
-        parcel.writeString(email    );
+        parcel.writeString(email);
+        parcel.writeString(Noktp);
+        parcel.writeString(alamat);
+
     }
 }
