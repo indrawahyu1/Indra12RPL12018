@@ -55,7 +55,7 @@ public class Admin extends AppCompatActivity implements SwipeRefreshLayout.OnRef
 
     private void getCustomer() {
         swipeRefresh.setRefreshing(true);
-        AndroidNetworking.get("http://192.168.1.12/api/show_user.php")
+        AndroidNetworking.get("http://192.168.43.193/api/show_user.php")
                 .setPriority(Priority.LOW)
                 .build()
                 .getAsJSONObject(new JSONObjectRequestListener() {
