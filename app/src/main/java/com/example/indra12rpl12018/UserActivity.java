@@ -150,7 +150,7 @@ public class UserActivity extends AppCompatActivity {
         body.put("nohp", nohp);
         body.put("alamat", alamat);
 
-        AndroidNetworking.post("http://192.168.43.193/api/edit_user.php")
+        AndroidNetworking.post("http://192.168.1.12/tugasapi/edit_user.php")
                 .addBodyParameter(body)
                 .setPriority(Priority.MEDIUM)
                 .build()
@@ -224,7 +224,7 @@ public class UserActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("pref", MODE_PRIVATE);
         String id_auth = sharedPreferences.getString("id", "");
 //            String id = getIntent().getStringExtra("u_id");
-        AndroidNetworking.post("http://192.168.43.193/api/delete_user.php")
+        AndroidNetworking.post("http://192.168.1.12/tugasapi/delete_user.php")
                 .addBodyParameter("id", id)
 //                    .addBodyParameter("id_auth", id_auth)
                 .setTag("test")
